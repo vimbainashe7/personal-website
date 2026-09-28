@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Personal portfolio of Vimbai Tandire, a Software Engineering student at the Harare Institute of Technology interested in software development, web development, technology and innovation.">
+  <meta name="theme-color" content="#101713">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vimbai Tandire | Software Engineering Student &amp; Aspiring Developer">
+  <meta property="og:description" content="A first-year Software Engineering student actively learning, building projects and working toward a career in technology.">
+  <title>Vimbai Tandire | Software Engineering Student &amp; Aspiring Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <!-- Responsive navigation; JavaScript adds the active-section and scrolled states. -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top site-nav" aria-label="Main navigation">
+      <div class="container page-container">
+        <a class="navbar-brand brand-mark" href="#home" aria-label="Vimbai.dev home">VIMBAI<span>.DEV</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavigation">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+            <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="#journey">Journey</a></li>
+            <li class="nav-item ms-lg-3"><a class="nav-link nav-cta" href="#contact">Let's connect <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a></li>
+          </ul>
+          <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme"><i class="bi bi-sun" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero pairs Vimbai's portrait with the developer terminal. -->
+    <section class="hero-section section-anchor" id="home" aria-labelledby="hero-title">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="container page-container hero-content">
+        <div class="row align-items-center gy-5">
+          <div class="col-lg-6 hero-copy reveal">
+            <p class="eyebrow"><span class="live-dot"></span> Hi, I'm Vimbai <span class="wave" aria-hidden="true">&#128075;&#127997;</span></p>
+            <h1 id="hero-title">Software Engineering Student <span class="heading-break">&amp; Aspiring Software Developer</span></h1>
+            <p class="hero-description">Building my skills in software engineering, programming, web development and technology, one project at a time.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#projects">View my projects <i class="bi bi-arrow-down-right" aria-hidden="true"></i></a>
+              <a class="button button-outline" href="#contact">Let's connect <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+            </div>
+            <div class="hero-status"><span class="status-pulse"></span> Currently learning &amp; building <span class="status-location">Harare, ZW</span></div>
+          </div>
+          <div class="col-lg-6 reveal reveal-delay">
+            <div class="developer-scene" aria-label="Portrait of Vimbai alongside a code terminal">
+              <span class="scene-orbit orbit-a"></span><span class="scene-orbit orbit-b"></span>
+              <span class="float-symbol symbol-braces" aria-hidden="true">{ }</span>
+              <span class="float-symbol symbol-slash" aria-hidden="true">&lt;/&gt;</span>
+              <img class="hero-portrait" src="assets/images/vimbai-tandire.jpg" alt="Portrait of Vimbai Tandire" fetchpriority="high">
+              <div class="terminal-window">
+                <div class="terminal-bar"><div class="terminal-lights"><i></i><i></i><i></i></div><span>vimbai@developer: ~</span><i class="bi bi-three-dots" aria-hidden="true"></i></div>
+                <div class="terminal-body" aria-hidden="true">
+                  <p><span class="terminal-prompt">$</span> whoami</p>
+                  <p class="terminal-result">vimbai@developer:~$</p>
+                  <p class="terminal-line"><span class="terminal-chevron">&gt;</span> Software Engineering student</p>
+                  <p class="terminal-line"><span class="terminal-chevron">&gt;</span> Learning Java &amp; Python</p>
+                  <p class="terminal-line"><span class="terminal-chevron">&gt;</span> Building practical projects</p>
+                  <p class="terminal-line"><span class="terminal-chevron">&gt;</span> Exploring technology<span class="terminal-cursor"></span></p>
+                  <p class="terminal-gap"><span class="terminal-prompt">$</span> status</p>
+                  <p class="terminal-success"><span class="terminal-chevron">&gt;</span> learning<span class="loading-dots">...</span></p>
+                </div>
+                <div class="terminal-footer"><span><i class="bi bi-circle-fill" aria-hidden="true"></i> Java</span><span>UTF-8</span><span>Harare, Zimbabwe</span></div>
+              </div>
+              <div class="scene-caption"><span class="caption-line"></span> A work in progress, by design</div>
+              <span class="scene-coordinate" aria-hidden="true">17.83&deg; S / 31.05&deg; E</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-bottom"><span>01 / 06</span><span class="hero-bottom-rule"></span><span>LEARNING SERIOUSLY. BUILDING PRACTICALLY.</span><a href="#about" aria-label="Scroll to About section"><i class="bi bi-arrow-down" aria-hidden="true"></i></a></div>
+      </div>
+    </section>
+
+    <!-- About and education are paired to introduce both Vimbai and her studies. -->
+    <section class="section-pad section-anchor" id="about" aria-labelledby="about-title">
+      <div class="container page-container">
+        <div class="section-heading reveal"><span class="section-kicker">01 / THE PERSON</span><h2 id="about-title">A little about <span class="accent-text">me.</span></h2></div>
+        <div class="row gy-5 about-layout">
+          <div class="col-lg-7 about-copy reveal">
+            <p class="lead-copy">Hi, I'm Vimbai Tandire, a first-year Software Engineering student at the Harare Institute of Technology (HIT), Zimbabwe.</p>
+            <p>I'm passionate about technology and interested in turning ideas and real-world problems into useful software solutions. I'm currently developing my skills in programming, web development, databases, operating systems and electronics.</p>
+            <p>I'm especially interested in becoming a well-rounded software developer, with long-term interests in full-stack development, artificial intelligence and building practical software products.</p>
+            <p>I'm still learning, experimenting and building, and I believe every project is an opportunity to improve.</p>
+          </div>
+          <div class="col-lg-5 reveal reveal-delay">
+            <aside class="profile-panel" aria-label="Student profile">
+              <div class="profile-panel-head"><span class="window-dots"><i></i><i></i><i></i></span><span>profile.json</span><i class="bi bi-braces-asterisk" aria-hidden="true"></i></div>
+              <div class="profile-grid">
+                <div><span class="profile-icon"><i class="bi bi-mortarboard" aria-hidden="true"></i></span><span class="profile-label">STUDENT</span><strong>Software Engineering</strong></div>
+                <div><span class="profile-icon"><i class="bi bi-geo-alt" aria-hidden="true"></i></span><span class="profile-label">LOCATION</span><strong>Zimbabwe</strong></div>
+                <div><span class="profile-icon"><i class="bi bi-code-slash" aria-hidden="true"></i></span><span class="profile-label">FOCUS</span><strong>Software development</strong></div>
+                <div><span class="profile-icon"><i class="bi bi-lightning-charge" aria-hidden="true"></i></span><span class="profile-label">STATUS</span><strong><span class="live-dot"></span>Learning &amp; building</strong></div>
+              </div>
+            </aside>
+          </div>
+        </div>
+        <article class="education-panel reveal">
+          <div class="education-icon"><i class="bi bi-mortarboard-fill" aria-hidden="true"></i></div>
+          <div class="education-copy"><span class="section-kicker">EDUCATION / 2026 — PRESENT</span><h3>Harare Institute of Technology</h3><p>BSc Software Engineering</p><span class="education-description">Studying software engineering while developing practical skills in programming, software development, operating systems, databases, electronics and problem solving.</span></div>
+          <span class="education-year" aria-hidden="true">HIT<span>.</span></span>
+        </article>
+        <div class="study-row"><span class="section-kicker">CURRENT AREAS OF STUDY</span><div class="chip-list"><span>Software engineering</span><span>Programming</span><span>Operating systems</span><span>Linux</span><span>Discrete mathematics</span><span>Analogue electronics</span><span>Technopreneurship</span><span>Computer systems</span></div></div>
+      </div>
+    </section>
+
+    <!-- Skills use text labels instead of misleading percentage bars. -->
+    <section class="section-pad skills-section section-anchor" id="skills" aria-labelledby="skills-title">
+      <div class="container page-container">
+        <div class="section-heading section-heading-row reveal"><div><span class="section-kicker">02 / THE TOOLKIT</span><h2 id="skills-title">What I'm <span class="accent-text">learning.</span></h2></div><p class="section-aside">Honest levels, built through practice.<br>No made-up percentages.</p></div>
+        <div class="row g-3 skills-grid">
+          <div class="col-md-6 col-xl-3 reveal"><article class="skill-card"><div class="skill-card-heading"><span class="skill-index">01</span><i class="bi bi-terminal" aria-hidden="true"></i></div><h3>Programming</h3><div class="skill-badges"><span class="skill-badge"><b>Java</b><em class="level intermediate">Intermediate</em></span><span class="skill-badge"><b>Python</b><em class="level beginner">Beginner</em></span><span class="skill-badge"><b>JavaScript</b><em class="level learning">Learning</em></span><span class="skill-badge"><b>PHP</b><em class="level beginner">Beginner</em></span></div></article></div>
+          <div class="col-md-6 col-xl-3 reveal"><article class="skill-card"><div class="skill-card-heading"><span class="skill-index">02</span><i class="bi bi-window" aria-hidden="true"></i></div><h3>Web development</h3><div class="tag-list"><span>HTML5</span><span>CSS3</span><span>Bootstrap</span><span>JavaScript</span><span>PHP</span><span>MySQL</span></div></article></div>
+          <div class="col-md-6 col-xl-3 reveal"><article class="skill-card"><div class="skill-card-heading"><span class="skill-index">03</span><i class="bi bi-diagram-3" aria-hidden="true"></i></div><h3>Software engineering</h3><div class="tag-list"><span>Object-oriented programming</span><span>File handling</span><span>CRUD applications</span><span>Database fundamentals</span><span>MVC architecture</span><span>Problem solving</span><span>Basic software design</span></div></article></div>
+          <div class="col-md-6 col-xl-3 reveal"><article class="skill-card"><div class="skill-card-heading"><span class="skill-index">04</span><i class="bi bi-wrench-adjustable" aria-hidden="true"></i></div><h3>Tools</h3><div class="tag-list"><span>IntelliJ IDEA</span><span>VS Code</span><span>XAMPP</span><span>Jupyter Notebook</span><span>VirtualBox</span><span>Linux / Ubuntu</span><span>Git &amp; GitHub <em class="level learning">Learning</em></span></div></article></div>
+        </div>
+        <div class="learning-strip reveal"><div class="learning-strip-title"><span class="live-dot"></span><span>CURRENTLY<br>LEARNING</span></div><div class="learning-items"><span>JavaScript</span><span>Python</span><span>Git &amp; GitHub</span><span>Backend development</span><span>React</span><span>Databases</span><span>AI &amp; software engineering</span></div></div>
+      </div>
+    </section>
+
+    <!-- Projects can be filtered using the buttons below; cards never link to invented repos. -->
+    <section class="section-pad section-anchor" id="projects" aria-labelledby="projects-title">
+      <div class="container page-container">
+        <div class="section-heading section-heading-row reveal"><div><span class="section-kicker">03 / THE BUILDS</span><h2 id="projects-title">Things I've <span class="accent-text">built.</span></h2></div><p class="section-aside">Projects are where I turn what I learn<br>into something practical.</p></div>
+        <div class="project-toolbar reveal"><p>Learning in public, improving with every build.</p><div class="filter-group" role="group" aria-label="Filter projects"><button class="filter-button active" type="button" data-filter="all" aria-pressed="true">All <span>04</span></button><button class="filter-button" type="button" data-filter="java" aria-pressed="false">Java</button><button class="filter-button" type="button" data-filter="python" aria-pressed="false">Python</button><button class="filter-button" type="button" data-filter="web" aria-pressed="false">Web</button><button class="filter-button" type="button" data-filter="innovation" aria-pressed="false">Innovation</button></div></div>
+        <div class="row g-3 project-grid" id="projectGrid">
+          <div class="col-md-6 project-column" data-category="java"><article class="project-card reveal"><div class="project-visual visual-java"><span class="project-icon"><i class="bi bi-check2-square" aria-hidden="true"></i></span><span class="visual-code">tasks.add(new Task("Learn Java"));</span><span class="visual-decoration">01</span></div><div class="project-card-content"><div class="project-meta"><span>JAVA / DESKTOP</span><span class="project-status"><i class="bi bi-circle-fill" aria-hidden="true"></i> Learning project</span></div><h3>Java To-Do Application</h3><p>A beginner-friendly task management application built to practise Java programming, Object-Oriented Programming and file handling.</p><div class="project-skills"><span>Java</span><span>OOP</span><span>File handling</span><span>CRUD</span><span>Problem solving</span></div><div class="project-links"><span class="coming-soon"><i class="bi bi-github" aria-hidden="true"></i> GitHub: Coming Soon</span><span class="coming-soon">Demo: Coming Soon</span></div></div></article></div>
+          <div class="col-md-6 project-column" data-category="web"><article class="project-card reveal"><div class="project-visual visual-web"><span class="project-icon"><i class="bi bi-shield-lock" aria-hidden="true"></i></span><span class="visual-code">&lt;form action="login.php"&gt;</span><span class="visual-decoration">02</span></div><div class="project-card-content"><div class="project-meta"><span>PHP / MYSQL / WEB</span><span class="project-status status-progress"><i class="bi bi-circle-fill" aria-hidden="true"></i> In development</span></div><h3>Authentication System</h3><p>A web-based authentication system featuring user registration, login and database interaction.</p><div class="project-skills"><span>PHP</span><span>MySQL</span><span>Forms</span><span>Database connectivity</span><span>CRUD</span></div><div class="project-links"><span class="coming-soon"><i class="bi bi-github" aria-hidden="true"></i> GitHub: Coming Soon</span><span class="coming-soon">Demo: Coming Soon</span></div></div></article></div>
+          <div class="col-md-6 project-column" data-category="python"><article class="project-card reveal"><div class="project-visual visual-python"><span class="project-icon"><i class="bi bi-box-seam" aria-hidden="true"></i></span><span class="visual-code">stock = product.quantity</span><span class="visual-decoration">03</span></div><div class="project-card-content"><div class="project-meta"><span>PYTHON / PROGRAMMING</span><span class="project-status"><i class="bi bi-circle-fill" aria-hidden="true"></i> Learning project</span></div><h3>Inventory Management Program</h3><p>A Python program designed to capture product information, stock quantities, expected demand, safety stock and pricing.</p><div class="project-skills"><span>Python</span><span>Input / output</span><span>Data types</span><span>Calculations</span><span>Problem solving</span></div><div class="project-links"><span class="coming-soon"><i class="bi bi-github" aria-hidden="true"></i> GitHub: Coming Soon</span><span class="coming-soon">Demo: Coming Soon</span></div></div></article></div>
+          <div class="col-md-6 project-column" data-category="innovation"><article class="project-card project-featured reveal"><div class="project-visual visual-innovation"><span class="project-icon"><i class="bi bi-signpost-split" aria-hidden="true"></i></span><span class="trace-node">FARM</span><span class="trace-line"></span><span class="trace-node trace-middle">MOVE</span><span class="trace-line"></span><span class="trace-node">MARKET</span><span class="visual-decoration">04</span></div><div class="project-card-content"><div class="project-meta"><span>RASPBERRY PI / SOFTWARE</span><span class="project-status status-innovation"><i class="bi bi-circle-fill" aria-hidden="true"></i> Innovation project</span></div><h3>Farm-to-Market Traceability</h3><p>An offline-first traceability system concept designed to help smallholder farmers share information about the origin and movement of agricultural produce.</p><div class="project-skills"><span>Systems thinking</span><span>Software design</span><span>Innovation</span><span>Problem solving</span></div><div class="project-links"><span class="coming-soon"><i class="bi bi-github" aria-hidden="true"></i> GitHub: Coming Soon</span><span class="coming-soon">Demo: Coming Soon</span></div></div></article></div>
+        </div>
+        <p class="filter-empty" id="filterEmpty" hidden>No projects in this category yet.</p>
+      </div>
+    </section>
+
+    <!-- Distinct innovation feature, included without implying awards or competition results. -->
+    <section class="innovation-section" aria-labelledby="innovation-title">
+      <div class="container page-container">
+        <div class="innovation-content reveal"><div class="innovation-topline"><span class="section-kicker">04 / BEYOND THE CLASSROOM</span><span class="innovation-year">TEXPO / 2026</span></div><div class="row align-items-end gy-4"><div class="col-lg-6"><p class="innovation-label"><span></span> INNOVATION CHALLENGE</p><h2 id="innovation-title">MOVE!<br><span>Farm to Market.</span></h2></div><div class="col-lg-5 offset-lg-1"><p class="innovation-description">Participating in a technology innovation challenge focused on developing practical solutions to real-world problems, exploring how offline-first traceability can help smallholder farmers.</p><div class="innovation-team"><span>TEAM</span><strong>Vimbai Tandire</strong><i class="bi bi-plus-lg" aria-hidden="true"></i><strong>Tapiwa Mabvudzi</strong></div></div></div><div class="innovation-route" aria-hidden="true"><span>ORIGIN</span><i class="bi bi-arrow-right"></i><span>JOURNEY</span><i class="bi bi-arrow-right"></i><span>MARKET</span></div></div>
+      </div>
+    </section>
+
+    <!-- Interests, goals, learning philosophy, and journey timeline. -->
+    <section class="section-pad interests-section" aria-labelledby="interests-title">
+      <div class="container page-container">
+        <div class="section-heading reveal"><span class="section-kicker">05 / CURIOUS BY NATURE</span><h2 id="interests-title">Beyond the <span class="accent-text">code.</span></h2></div>
+        <div class="row g-3 interest-grid">
+          <div class="col-sm-6 col-lg-4 reveal"><article class="interest-card"><i class="bi bi-code-slash" aria-hidden="true"></i><h3>Software development</h3><p>Building useful applications and learning how software systems work.</p></article></div>
+          <div class="col-sm-6 col-lg-4 reveal"><article class="interest-card"><i class="bi bi-globe2" aria-hidden="true"></i><h3>Web development</h3><p>Creating responsive websites and full-stack applications.</p></article></div>
+          <div class="col-sm-6 col-lg-4 reveal"><article class="interest-card"><i class="bi bi-cpu" aria-hidden="true"></i><h3>Artificial intelligence</h3><p>Exploring how AI can be integrated into useful software solutions.</p></article></div>
+          <div class="col-sm-6 col-lg-4 reveal"><article class="interest-card"><i class="bi bi-phone" aria-hidden="true"></i><h3>Mobile development</h3><p>Interested in eventually developing useful mobile applications.</p></article></div>
+          <div class="col-sm-6 col-lg-4 reveal"><article class="interest-card"><i class="bi bi-rocket-takeoff" aria-hidden="true"></i><h3>Entrepreneurship</h3><p>Turning software ideas into practical products and businesses.</p></article></div>
+          <div class="col-sm-6 col-lg-4 reveal"><article class="interest-card"><i class="bi bi-lightbulb" aria-hidden="true"></i><h3>Technology &amp; innovation</h3><p>Exploring technology and finding creative solutions to real-world problems.</p></article></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad journey-section section-anchor" id="journey" aria-labelledby="journey-title">
+      <div class="container page-container">
+        <div class="section-heading section-heading-row reveal"><div><span class="section-kicker">06 / MY JOURNEY</span><h2 id="journey-title">Learning as <span class="accent-text">I go.</span></h2></div><p class="section-aside">Not a finished story. A direction, a practice,<br>and the next thing to learn.</p></div>
+        <div class="timeline">
+          <article class="timeline-item reveal"><span class="timeline-marker"></span><span class="timeline-date">2026</span><div><h3>Started Software Engineering at HIT</h3><p>Began studying software engineering and exploring programming, operating systems, electronics, databases and software development.</p></div></article>
+          <article class="timeline-item reveal"><span class="timeline-marker"></span><span class="timeline-date">2026</span><div><h3>Started building projects</h3><p>Started moving beyond theory and creating practical programs using Java, Python, PHP and MySQL.</p></div></article>
+          <article class="timeline-item reveal"><span class="timeline-marker"></span><span class="timeline-date">2026</span><div><h3>Exploring innovation</h3><p>Started exploring technology-based solutions and participating in innovation challenges.</p></div></article>
+          <article class="timeline-item timeline-next reveal"><span class="timeline-marker"></span><span class="timeline-date">WHAT'S NEXT</span><div><h3>Full-stack development</h3><p>Learning JavaScript, backend development, databases, Git and GitHub, and modern web technologies.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="philosophy-section" aria-labelledby="philosophy-title">
+      <div class="container page-container philosophy-layout">
+        <div class="philosophy-copy reveal"><span class="section-kicker">A PRACTICE, NOT A FINISH LINE</span><h2 id="philosophy-title">My learning<br><span class="accent-text">philosophy.</span></h2><p>I don't want to learn programming only through theory. I want to understand concepts by building things, making mistakes, solving problems and continuously improving.</p></div>
+        <div class="learning-sequence reveal reveal-delay" aria-label="Learn, build, break, fix, improve"><div><span>01</span><strong>LEARN</strong></div><i class="bi bi-arrow-down" aria-hidden="true"></i><div><span>02</span><strong>BUILD</strong></div><i class="bi bi-arrow-down" aria-hidden="true"></i><div><span>03</span><strong>BREAK <b>/</b> FIX</strong></div><i class="bi bi-arrow-down" aria-hidden="true"></i><div><span>04</span><strong>IMPROVE<span class="sequence-period">.</span></strong></div></div>
+      </div>
+    </section>
+
+    <section class="section-pad currently-section" aria-labelledby="currently-title">
+      <div class="container page-container">
+        <div class="section-heading section-heading-row reveal"><div><span class="section-kicker">THE NEXT CHAPTER</span><h2 id="currently-title">Currently <span class="accent-text">learning.</span></h2></div><span class="learning-live"><i class="bi bi-circle-fill" aria-hidden="true"></i> IN PROGRESS</span></div>
+        <div class="row g-3 current-grid">
+          <div class="col-sm-6 col-lg-4 reveal"><article class="current-card"><span>01</span><h3>JavaScript</h3><p>Learning interactive web development.</p><i class="bi bi-braces" aria-hidden="true"></i></article></div>
+          <div class="col-sm-6 col-lg-4 reveal"><article class="current-card"><span>02</span><h3>Python</h3><p>Building programming fundamentals.</p><i class="bi bi-terminal" aria-hidden="true"></i></article></div>
+          <div class="col-sm-6 col-lg-4 reveal"><article class="current-card"><span>03</span><h3>Git &amp; GitHub</h3><p>Learning version control and collaboration.</p><i class="bi bi-git" aria-hidden="true"></i></article></div>
+          <div class="col-sm-6 col-lg-4 reveal"><article class="current-card"><span>04</span><h3>Backend development</h3><p>Learning how applications communicate with databases and servers.</p><i class="bi bi-hdd-network" aria-hidden="true"></i></article></div>
+          <div class="col-sm-6 col-lg-4 reveal"><article class="current-card"><span>05</span><h3>Full-stack development</h3><p>Working toward understanding both frontend and backend development.</p><i class="bi bi-layers" aria-hidden="true"></i></article></div>
+          <div class="col-sm-6 col-lg-4 reveal"><article class="current-card"><span>06</span><h3>Artificial intelligence</h3><p>Exploring AI and its applications in software engineering.</p><i class="bi bi-cpu" aria-hidden="true"></i></article></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad goals-section" aria-labelledby="goals-title">
+      <div class="container page-container">
+        <div class="section-heading reveal"><span class="section-kicker">A DIRECTION TO GROW IN</span><h2 id="goals-title">Where I'm <span class="accent-text">going.</span></h2></div>
+        <div class="row g-3 goals-grid">
+          <div class="col-md-4 reveal"><article class="goal-card"><span class="goal-label">01 / SHORT TERM</span><h3>Build the foundations.</h3><ul><li>Strengthen programming fundamentals</li><li>Become confident with Java and Python</li><li>Learn JavaScript</li><li>Build more real-world projects</li><li>Learn Git and GitHub</li></ul></article></div>
+          <div class="col-md-4 reveal"><article class="goal-card"><span class="goal-label">02 / MEDIUM TERM</span><h3>Grow through practice.</h3><ul><li>Become a full-stack developer</li><li>Build and deploy real applications</li><li>Gain internship experience</li><li>Start freelancing</li><li>Contribute to open source</li></ul></article></div>
+          <div class="col-md-4 reveal"><article class="goal-card goal-long"><span class="goal-label">03 / LONG TERM</span><h3>Make useful things possible.</h3><p>Become a highly skilled software engineer capable of designing, building and deploying technology solutions that solve real-world problems.</p><span class="goal-arrow" aria-hidden="true"><i class="bi bi-arrow-up-right"></i></span></article></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- This form is explicitly frontend-only. It confirms locally and does not send data. -->
+    <section class="contact-section section-anchor" id="contact" aria-labelledby="contact-title">
+      <div class="container page-container">
+        <div class="row gy-5">
+          <div class="col-lg-6 contact-copy reveal"><span class="section-kicker">07 / GET IN TOUCH</span><h2 id="contact-title">Let's build<br>something <span class="accent-text">useful.</span></h2><p>I'm always interested in learning, collaborating on projects, discussing technology and connecting with people interested in software and innovation.</p><div class="contact-details"><span><i class="bi bi-geo-alt" aria-hidden="true"></i> Zimbabwe</span><span><i class="bi bi-telephone" aria-hidden="true"></i> <a href="tel:+263715092063">0715092063</a></span><span><i class="bi bi-envelope" aria-hidden="true"></i> Email: Coming Soon</span></div><div class="social-placeholders"><span><i class="bi bi-github" aria-hidden="true"></i> GitHub: Coming Soon</span><span><i class="bi bi-linkedin" aria-hidden="true"></i> LinkedIn: Coming Soon</span></div></div>
+          <div class="col-lg-6 reveal reveal-delay"><form class="contact-form" id="contactForm"><div class="form-heading"><h3>Say hello.</h3><span>FRONTEND-ONLY FORM</span></div><p class="form-note">This form doesn't send messages yet. Add a real email or connect a backend when you're ready.</p><div class="mb-3"><label for="contactName" class="form-label">Your name</label><input class="form-control" id="contactName" name="name" type="text" autocomplete="name" placeholder="Jane Doe" required></div><div class="mb-3"><label for="contactEmail" class="form-label">Email address</label><input class="form-control" id="contactEmail" name="email" type="email" autocomplete="email" placeholder="jane@example.com" required></div><div class="mb-3"><label for="contactMessage" class="form-label">Message</label><textarea class="form-control" id="contactMessage" name="message" rows="4" placeholder="What would you like to talk about?" required></textarea></div><button class="button button-primary form-submit" type="submit">Preview message <i class="bi bi-arrow-right" aria-hidden="true"></i></button><p class="form-feedback" id="formFeedback" role="status" aria-live="polite"></p></form></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer links only to sections on this page; social destinations are shown as Coming Soon above. -->
+  <footer class="site-footer"><div class="container page-container"><div class="footer-main"><a class="navbar-brand brand-mark" href="#home">VIMBAI<span>.DEV</span></a><p>Building. Learning. Improving.</p><nav aria-label="Footer navigation"><a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a></nav></div><div class="footer-bottom"><span>&copy; 2026 Vimbai Tandire.</span><span>Built with HTML, CSS, Bootstrap &amp; JavaScript.</span><a href="#home">Back to top <i class="bi bi-arrow-up" aria-hidden="true"></i></a></div></div></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
