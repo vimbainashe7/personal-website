@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyMate - Study Smarter, Dream Bigger 🌸📚</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Quicksand:wght@500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    /* ==========================================
+       EXACT COLOR SYSTEM & DESIGN TOKENS
+       ========================================== */
+    :root {
+      --bg-poster: #f5edf8;
+      --bg-gradient: linear-gradient(160deg, #f7eff9 0%, #fdf5f8 50%, #eee4f5 100%);
+      --primary-purple: #5c3b88;
+      --deep-purple: #2f1c4e;
+      --soft-purple: #8e68b8;
+      --light-purple: #e9def4;
+      --card-purple: #6d4b9b;
+      --accent-pink: #eb6b98;
+      --soft-pink: #fde8f0;
+      --pastel-blue: #6495ed;
+      --soft-blue: #e3ebfc;
+      --pastel-green: #48bb78;
+      --soft-green: #e6f7ee;
+      --pastel-yellow: #f6ad55;
+      --soft-yellow: #fef5e7;
+      --text-dark: #2d2438;
+      --text-muted: #796f85;
+      --text-light: #a49cb0;
+      --white: #ffffff;
+      --phone-border: #3b2a52;
+      --shadow-poster: 0 20px 60px rgba(78, 42, 114, 0.15);
+      --shadow-card: 0 10px 25px rgba(110, 68, 158, 0.1);
+      --shadow-phone: 0 20px 40px rgba(50, 20, 80, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #2b1f3d;
+      background-image: radial-gradient(#3d2c54 1px, transparent 1px);
+      background-size: 24px 24px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-dark);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 15px;
+    }
+
+    /* ==========================================
+       MAIN POSTER CANVAS (EXACT POSTER LAYOUT)
+       ========================================== */
+    .poster-canvas {
+      width: 100%;
+      max-width: 1200px;
+      background: var(--bg-gradient);
+      border-radius: 36px;
+      box-shadow: var(--shadow-poster), 0 0 0 12px rgba(255, 255, 255, 0.08);
+      position: relative;
+      overflow: hidden;
+      padding: 45px 50px 40px 50px;
+    }
+
+    /* Ambient Sparkles & Background Ornaments */
+    .sparkle-bg {
+      position: absolute;
+      pointer-events: none;
+      user-select: none;
+      font-family: 'Caveat', cursive;
+    }
+    .sp-1 { top: 35px; left: 45%; font-size: 24px; color: #d8b4e2; }
+    .sp-2 { top: 120px; right: 8%; font-size: 28px; color: #f9c2d5; }
+    .sp-3 { top: 320px; left: 400px; font-size: 22px; color: #c49edb; }
+    .sp-4 { bottom: 180px; left: 45%; font-size: 32px; color: #f7a9c4; }
+    .sp-5 { bottom: 120px; right: 5%; font-size: 26px; color: #d0aee3; }
+    .sakura-bg {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    /* ==========================================
+       TOP LOGO & HERO SECTION
+       ========================================== */
+    .poster-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .brand-icon-box {
+      width: 46px;
+      height: 46px;
+      background: linear-gradient(135deg, #6c479c, #4a2977);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffd166;
+      font-size: 24px;
+      box-shadow: 0 6px 14px rgba(92, 59, 136, 0.3);
+      position: relative;
+    }
+    .brand-icon-box::after {
+      content: '✦';
+      position: absolute;
+      top: 4px;
+      right: 6px;
+      font-size: 10px;
+      color: #fff;
+    }
+
+    .brand-name {
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 800;
+      font-size: 26px;
+      color: var(--deep-purple);
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-tagline {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.8px;
+    }
+
+    /* Grid Layout: Left Column & Right UI Previews */
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 30px;
+      position: relative;
+    }
+
+    /* Left Hero Column */
+    .hero-left-col {
+      display: flex;
+      flex-direction: column;
+      z-index: 2;
+    }
+
+    .main-headline {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 44px;
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--deep-purple);
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+
+    .main-headline .pink-text {
+      color: var(--accent-pink);
+      position: relative;
+      display: inline-block;
+    }
+
+    .main-headline .heart-doodle {
+      font-family: 'Caveat', cursive;
+      font-size: 38px;
+      color: var(--accent-pink);
+      vertical-align: middle;
+      margin-left: 4px;
+      display: inline-block;
+      transform: rotate(-10deg);
+    }
+
+    .hero-subtext {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 26px;
+    }
+
+    /* 4 Feature Pills */
+    .features-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    .feature-item-card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 4px 15px rgba(110, 68, 158, 0.06);
+      border: 1px solid rgba(233, 222, 244, 0.7);
+      transition: all 0.25s ease;
+    }
+    .feature-item-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-card);
+      border-color: var(--primary-purple);
+    }
+
+    .feat-icon-sq {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .fi-blue { background: #edf2fe; color: #4379e6; }
+    .fi-pink { background: #fdeaf1; color: #e64980; }
+    .fi-yellow { background: #fef4e5; color: #f59f00; }
+    .fi-green { background: #eaf8f0; color: #2fb366; }
+
+    .feat-info-title {
+      font-weight: 700;
+      font-size: 13.5px;
+      color: var(--deep-purple);
+      margin-bottom: 2px;
+    }
+
+    .feat-info-desc {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    /* ==========================================
+       CENTER ANIME ILLUSTRATION COMPONENT
+       ========================================== */
+    .girl-study-illustration-wrap {
+      position: absolute;
+      left: 310px;
+      top: 15px;
+      width: 250px;
+      height: 290px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* ==========================================
+       RIGHT APP SCREENS GRID (4 MOCKUP PHONES)
+       ========================================== */
+    .mockups-grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Individual Phone Mockup Shell */
+    .phone-device {
+      background: #ffffff;
+      border-radius: 36px;
+      border: 6px solid #2e1d44;
+      box-shadow: var(--shadow-phone);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 490px;
+      position: relative;
+      background-clip: padding-box;
+    }
+
+    /* Phone Status Bar */
+    .phone-top-notch {
+      height: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 16px;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-dark);
+      background: #faf7fc;
+    }
+    .notch-island {
+      width: 60px;
+      height: 12px;
+      background: #2e1d44;
+      border-radius: 10px;
+      margin: 0 auto;
+    }
+
+    .phone-inner-content {
+      padding: 12px 14px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: #fdfafd;
+    }
+
+    /* Bottom Navigation Bar on Phones */
+    .phone-tabbar {
+      height: 44px;
+      background: #ffffff;
+      border-top: 1px solid #f0e6f5;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0 6px;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .tabbar-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #9d92aa;
+      font-size: 13px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .tabbar-item.active {
+      color: var(--primary-purple);
+    }
+    .tabbar-item span {
+      font-size: 7.5px;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+    .tabbar-center-add {
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(135deg, #7c52ab, #5a3489);
+      border-radius: 50%;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      box-shadow: 0 3px 8px rgba(92, 59, 136, 0.4);
+      cursor: pointer;
+    }
+
+    /* ==========================================
+       PHONE 1: HOME SCREEN CONTENT
+       ========================================== */
+    .home-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .home-greeting-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--deep-purple);
+    }
+    .home-greeting-sub {
+      font-size: 8.5px;
+      color: var(--text-muted);
+      line-height: 1.2;
+    }
+    .home-avatar-img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #eedaf5;
+      border: 2px solid var(--white);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+    }
+
+    /* Purple Daily Goal Card */
+    .daily-goal-banner {
+      background: linear-gradient(135deg, #7c53ad, #563383);
+      border-radius: 16px;
+      padding: 12px 14px;
+      color: #ffffff;
+      margin-bottom: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .daily-goal-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+    .dg-label {
+      font-size: 8.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      opacity: 0.85;
+    }
+    .dg-counter {
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .dg-counter span {
+      font-size: 9px;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+    .dg-quote {
+      font-size: 8px;
+      font-style: italic;
+      color: #f5e8fd;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      margin-top: 6px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 5px;
+    }
+    .dg-mascot {
+      position: absolute;
+      right: 8px;
+      top: 6px;
+      font-size: 26px;
+      opacity: 0.9;
+    }
+
+    /* Today's Schedule List */
+    .section-header-mini {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .sh-title {
+      font-size: 10.5px;
+      font-weight: 800;
+      color: var(--deep-purple);
+    }
+    .sh-link {
+      font-size: 8px;
+      color: var(--soft-purple);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .schedule-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .sched-item {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 7px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid #f2e9f7;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    }
+    .sched-item-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sched-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+    }
+    .si-math { background: #eef2ff; color: #4f46e5; }
+    .si-bio { background: #ecfdf5; color: #059669; }
+    .si-hist { background: #fef2f2; color: #dc2626; }
+    .si-phys { background: #faf5ff; color: #7c3aed; }
+
+    .sched-text-name {
+      font-size: 9.5px;
+      font-weight: 700;
+      color: var(--deep-purple);
+      line-height: 1.1;
+    }
+    .sched-text-sub {
+      font-size: 7.5px;
+      color: var(--text-muted);
+    }
+    .sched-time-badge {
+      font-size: 7.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+      background: #f7f3fa;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    /* ==========================================
+       PHONE 2: PLANNER SCREEN CONTENT
+       ========================================== */
+    .planner-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .week-calendar-strip {
+      display: flex;
+      justify-content: space-between;
+      background: #ffffff;
+      padding: 6px 4px;
+      border-radius: 14px;
+      border: 1px solid #f0e6f5;
+      margin-bottom: 10px;
+    }
+    .cal-day-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 4px 6px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .cal-day-col.selected {
+      background: linear-gradient(135deg, #7c52ab, #5c3587);
+      color: #fff;
+    }
+    .cdc-name {
+      font-size: 7px;
+      font-weight: 600;
+      opacity: 0.7;
+      margin-bottom: 2px;
+    }
+    .cdc-num {
+      font-size: 9.5px;
+      font-weight: 800;
+    }
+
+    .tasks-list-mini {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 10px;
+    }
+    .task-row-card {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 6px 9px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #f0e6f5;
+    }
+    .task-check-circle {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1.5px solid #d4c5e3;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8px;
+      color: white;
+    }
+    .task-check-circle.checked {
+      background: #5c3587;
+      border-color: #5c3587;
+    }
+    .task-details-col {
+      flex-grow: 1;
+    }
+    .td-title {
+      font-size: 8.5px;
+      font-weight: 700;
+      color: var(--deep-purple);
+    }
+    .td-sub {
+      font-size: 7px;
+      color: var(--text-muted);
+    }
+
+    .streak-widget-card {
+      background: linear-gradient(135deg, #8b62bf, #5a348c);
+      border-radius: 12px;
+      padding: 8px 10px;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+    }
+    .streak-widget-left {
+      font-size: 8px;
+      font-weight: 600;
+    }
+    .streak-widget-num {
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .streak-widget-icon {
+      font-size: 20px;
+    }
+
+    /* ==========================================
+       MIDDLE ROW: PINNED MEMO & CAT MASCOT
+       ========================================== */
+    .middle-features-strip {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 30px;
+      margin-top: 30px;
+      align-items: center;
+    }
+
+    /* Polaroid / Washi Tape Pinned Note */
+    .washi-memo-paper {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 24px 20px 20px 20px;
+      box-shadow: 0 12px 30px rgba(110, 68, 158, 0.08);
+      position: relative;
+      border: 1px solid rgba(233, 222, 244, 0.8);
+    }
+
+    /* Washi Tape Accent */
+    .washi-tape-strip {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 18px;
+      background: rgba(235, 107, 152, 0.4);
+      border-left: 2px dashed rgba(255,255,255,0.7);
+      border-right: 2px dashed rgba(255,255,255,0.7);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .memo-headline {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--deep-purple);
+      text-align: center;
+      margin-bottom: 18px;
+    }
+    .memo-headline .heart-sm {
+      color: var(--accent-pink);
+      font-family: 'Caveat', cursive;
+      font-size: 24px;
+    }
+
+    /* 6-Grid Feature Icons */
+    .memo-features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      text-align: center;
+    }
+    .memo-grid-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .mgi-icon-sq {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    }
+    .mgi-1 { background: #eef4ff; color: #4379e6; }
+    .mgi-2 { background: #fdf2f2; color: #ea5455; }
+    .mgi-3 { background: #fef7ee; color: #f59f00; }
+    .mgi-4 { background: #faf5ff; color: #8a4fff; }
+    .mgi-5 { background: #fdf0f5; color: #e64980; }
+    .mgi-6 { background: #edf9f2; color: #2fb366; }
+
+    .mgi-label {
+      font-size: 9.5px;
+      font-weight: 700;
+      color: var(--deep-purple);
+      line-height: 1.2;
+    }
+
+    /* Cat Mascot & Motivation Bubble */
+    .mascot-speech-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .cat-avatar-art {
+      width: 50px;
+      height: 50px;
+      background: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 4px 12px rgba(110, 68, 158, 0.12);
+      border: 2px solid #eedbf5;
+    }
+    .speech-bubble-box {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 10px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--deep-purple);
+      box-shadow: 0 4px 12px rgba(110, 68, 158, 0.08);
+      position: relative;
+      line-height: 1.3;
+      border: 1px solid #f0e6f5;
+    }
+    .speech-bubble-box::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+      width: 12px;
+      height: 12px;
+      background: #ffffff;
+      border-left: 1px solid #f0e6f5;
+      border-bottom: 1px solid #f0e6f5;
+    }
+
+    /* ==========================================
+       PHONE 3: FOCUS TIMER SCREEN
+       ========================================== */
+    .timer-segmented-control {
+      display: flex;
+      background: #f3ebf7;
+      border-radius: 20px;
+      padding: 3px;
+      margin-bottom: 16px;
+    }
+    .tsc-btn {
+      flex: 1;
+      text-align: center;
+      font-size: 8px;
+      font-weight: 700;
+      padding: 4px 0;
+      border-radius: 16px;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+    .tsc-btn.active {
+      background: linear-gradient(135deg, #7c52ab, #5a3489);
+      color: #ffffff;
+    }
+
+    .timer-circle-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 10px 0;
+    }
+    .timer-ring-art {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fbf7fd 60%, #eedcf7 100%);
+      border: 6px solid #e7d1f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 6px 18px rgba(110, 68, 158, 0.1);
+    }
+    .timer-avatar-center {
+      font-size: 55px;
+    }
+
+    .timer-digits {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--deep-purple);
+      margin-top: 10px;
+      letter-spacing: -0.5px;
+    }
+    .timer-sub-guide {
+      font-size: 8.5px;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .timer-start-pill-btn {
+      background: linear-gradient(135deg, #7c52ab, #5a3489);
+      color: #ffffff;
+      border: none;
+      padding: 7px 30px;
+      border-radius: 20px;
+      font-size: 10.5px;
+      font-weight: 800;
+      box-shadow: 0 4px 12px rgba(92, 59, 136, 0.35);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .timer-start-pill-btn:hover {
+      transform: scale(1.04);
+    }
+
+    /* ==========================================
+       PHONE 4: PROGRESS & ANALYTICS SCREEN
+       ========================================== */
+    .progress-top-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .progress-stat-hero {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--deep-purple);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .progress-stat-hero span {
+      font-size: 8.5px;
+      color: var(--text-muted);
+      display: block;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    /* Bar Chart Widget */
+    .weekly-bar-chart {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      height: 70px;
+      background: #ffffff;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid #f0e6f5;
+      margin-bottom: 10px;
+    }
+    .bar-col-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      height: 100%;
+      justify-content: flex-end;
+    }
+    .bar-pill {
+      width: 10px;
+      background: #eee4f5;
+      border-radius: 6px;
+      transition: height 0.3s ease;
+    }
+    .bar-pill.bp-active {
+      background: linear-gradient(180deg, #8b62bf, #5a348c);
+    }
+    .bar-pill.bp-highlight {
+      background: linear-gradient(180deg, #eb6b98, #c84074);
+    }
+    .bar-day-label {
+      font-size: 6.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    /* Stat Badges Row */
+    .progress-badges-row {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+    .pb-box {
+      flex: 1;
+      background: #ffffff;
+      padding: 6px 8px;
+      border-radius: 10px;
+      border: 1px solid #f0e6f5;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pbb-num {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--deep-purple);
+    }
+    .pbb-lbl {
+      font-size: 6.5px;
+      color: var(--text-muted);
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    /* Subject Progress Lines */
+    .subject-prog-list {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .subj-line-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .sli-head {
+      display: flex;
+      justify-content: space-between;
+      font-size: 7.5px;
+      font-weight: 700;
+      color: var(--deep-purple);
+    }
+    .sli-bar-bg {
+      height: 4px;
+      background: #eee4f5;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .sli-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+    }
+
+    /* ==========================================
+       BOTTOM CTA POSTER BANNER
+       ========================================== */
+    .poster-footer-banner {
+      margin-top: 36px;
+      background: linear-gradient(135deg, #6c479c 0%, #4a2977 100%);
+      border-radius: 24px;
+      padding: 16px 28px;
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      box-shadow: 0 12px 30px rgba(78, 42, 114, 0.25);
+    }
+
+    .pfb-left-text {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .pfb-star {
+      font-size: 26px;
+      color: #ffd166;
+    }
+    .pfb-title-quote {
+      font-size: 13.5px;
+      font-weight: 800;
+      letter-spacing: -0.2px;
+      line-height: 1.3;
+    }
+    .pfb-sub-quote {
+      font-size: 11px;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    .pfb-right-cta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .pfb-callout {
+      text-align: right;
+    }
+    .pfb-callout-text {
+      font-size: 10.5px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .store-buttons-stack {
+      display: flex;
+      gap: 8px;
+    }
+    .store-badge-btn {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 10px;
+      padding: 6px 12px;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .store-badge-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-1px);
+    }
+    .sbb-icon { font-size: 16px; }
+    .sbb-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+    .sbb-sub { font-size: 6px; opacity: 0.8; text-transform: uppercase; }
+    .sbb-main { font-size: 9.5px; font-weight: 800; }
+
+    .pfb-cat-corner {
+      position: absolute;
+      right: -15px;
+      bottom: -10px;
+      font-size: 44px;
+      pointer-events: none;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    }
+
+    /* ==========================================
+       RESPONSIVE BREAKPOINTS
+       ========================================== */
+    @media (max-width: 1024px) {
+      .hero-layout, .middle-features-strip {
+        grid-template-columns: 1fr;
+      }
+      .girl-study-illustration-wrap {
+        display: none;
+      }
+      .mockups-grid-container {
+        grid-template-columns: 1fr 1fr;
+      }
+      .poster-footer-banner {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+      .pfb-left-text, .pfb-right-cta {
+        flex-direction: column;
+      }
+      .pfb-callout {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .poster-canvas {
+        padding: 24px 18px;
+        border-radius: 24px;
+      }
+      .mockups-grid-container {
+        grid-template-columns: 1fr;
+      }
+      .main-headline {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Decorative Sparkles -->
+  <span class="sparkle-bg sp-1">✦</span>
+  <span class="sparkle-bg sp-2">✧</span>
+  <span class="sparkle-bg sp-3">✨</span>
+  <span class="sparkle-bg sp-4">🌸</span>
+  <span class="sparkle-bg sp-5">✦</span>
+
+  <!-- ==========================================
+       EXACT POSTER CANVAS
+       ========================================== -->
+  <div class="poster-canvas">
+
+    <!-- Top App Logo -->
+    <header class="poster-header">
+      <div class="brand-icon-box">
+        <i class="bi bi-star-fill"></i>
+      </div>
+      <div>
+        <div class="brand-name">StudyMate</div>
+        <div class="brand-tagline">Plan. Focus. Achieve.</div>
+      </div>
+    </header>
+
+    <!-- Top Grid: Hero Left Text + Top 2 Phones -->
+    <section class="hero-layout">
+      
+      <!-- Left Column: Title, Subtitle, 4 Key Features -->
+      <div class="hero-left-col">
+        <h1 class="main-headline">
+          Your Study<br>
+          <span class="pink-text">Companion</span><span class="heart-doodle">♡</span>
+        </h1>
+        <p class="hero-subtext">
+          Plan your study. Track your progress.<br>
+          Achieve your goals! ✦
+        </p>
+
+        <!-- 4 Feature Cards -->
+        <div class="features-list">
+          <div class="feature-item-card">
+            <div class="feat-icon-sq fi-blue">
+              <i class="bi bi-calendar2-check-fill"></i>
+            </div>
+            <div>
+              <div class="feat-info-title">Smart Study Planner</div>
+              <div class="feat-info-desc">Organize tasks, subjects & deadlines with ease.</div>
+            </div>
+          </div>
+
+          <div class="feature-item-card">
+            <div class="feat-icon-sq fi-pink">
+              <i class="bi bi-stopwatch-fill"></i>
+            </div>
+            <div>
+              <div class="feat-info-title">Focus Timer</div>
+              <div class="feat-info-desc">Stay focused with Pomodoro timer & boost productivity.</div>
+            </div>
+          </div>
+
+          <div class="feature-item-card">
+            <div class="feat-icon-sq fi-yellow">
+              <i class="bi bi-bar-chart-line-fill"></i>
+            </div>
+            <div>
+              <div class="feat-info-title">Track Progress</div>
+              <div class="feat-info-desc">Monitor your daily progress and stay motivated.</div>
+            </div>
+          </div>
+
+          <div class="feature-item-card">
+            <div class="feat-icon-sq fi-green">
+              <i class="bi bi-trophy-fill"></i>
+            </div>
+            <div>
+              <div class="feat-info-title">Achievements</div>
+              <div class="feat-info-desc">Earn badges and celebrate every milestone.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vector Anime Girl Artwork Component -->
+      <div class="girl-study-illustration-wrap">
+        <svg viewBox="0 0 250 290" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="hoodieGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#b695d8"/>
+              <stop offset="100%" stop-color="#7d58a5"/>
+            </linearGradient>
+            <linearGradient id="hairGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#462c59"/>
+              <stop offset="100%" stop-color="#2a1738"/>
+            </linearGradient>
+          </defs>
+          
+          <!-- Soft Pastel Aura -->
+          <circle cx="125" cy="130" r="95" fill="#edd9f7" opacity="0.6"/>
+          
+          <!-- Back Hair Bun -->
+          <circle cx="130" cy="48" r="26" fill="url(#hairGrad)"/>
+          <circle cx="146" cy="40" r="10" fill="#6d4b85" opacity="0.5"/>
+          <ellipse cx="130" cy="64" rx="7" ry="4" fill="#eb6b98"/> <!-- Hair scrunchie -->
+          
+          <!-- Main Hair Mass -->
+          <path d="M 68 120 C 68 60, 185 60, 185 120 C 185 170, 68 170, 68 120 Z" fill="url(#hairGrad)"/>
+          
+          <!-- Face & Neck -->
+          <path d="M 98 105 Q 126 150 154 105 Z" fill="#ffe1cf"/>
+          <ellipse cx="126" cy="100" rx="36" ry="34" fill="#ffe7d9"/>
+          
+          <!-- Cheeks Blush -->
+          <ellipse cx="106" cy="108" rx="8" ry="4.5" fill="#f87da6" opacity="0.4"/>
+          <ellipse cx="146" cy="108" rx="8" ry="4.5" fill="#f87da6" opacity="0.4"/>
+          
+          <!-- Cute Anime Eyes & Smile -->
+          <ellipse cx="112" cy="98" rx="4.5" ry="5.5" fill="#2d173d"/>
+          <circle cx="114" cy="96" r="1.8" fill="#ffffff"/>
+          <ellipse cx="140" cy="98" rx="4.5" ry="5.5" fill="#2d173d"/>
+          <circle cx="142" cy="96" r="1.8" fill="#ffffff"/>
+          <path d="M 121 113 Q 126 118 131 113" stroke="#e06c8f" stroke-width="2" fill="none" stroke-linecap="round"/>
+          
+          <!-- Front Bangs -->
+          <path d="M 90 85 Q 110 102 122 88 Q 138 104 162 85 Q 150 65 126 65 Q 100 65 90 85 Z" fill="url(#hairGrad)"/>
+          <path d="M 75 95 Q 85 140 92 165" stroke="url(#hairGrad)" stroke-width="7" stroke-linecap="round" fill="none"/>
+          <path d="M 175 95 Q 165 140 160 165" stroke="url(#hairGrad)" stroke-width="7" stroke-linecap="round" fill="none"/>
+
+          <!-- Oversized Cozy Hoodie Body -->
+          <path d="M 75 145 C 55 180, 50 250, 45 270 L 205 270 C 200 250, 195 180, 175 145 Q 126 160 75 145 Z" fill="url(#hoodieGrad)"/>
+          <path d="M 112 148 L 126 165 L 140 148" stroke="#eedef8" stroke-width="2.5" fill="none"/>
+          
+          <!-- Study Table Surface & Books Stack -->
+          <rect x="20" y="248" width="210" height="30" rx="6" fill="#eedbf5"/>
+          <rect x="25" y="240" width="60" height="10" rx="3" fill="#eb6b98"/>
+          <text x="32" y="247" font-size="6" fill="#fff" font-weight="bold">BIOLOGY</text>
+          <rect x="28" y="232" width="54" height="9" rx="3" fill="#8e68b8"/>
+          <text x="34" y="238" font-size="5.5" fill="#fff" font-weight="bold">HISTORY</text>
+          
+          <!-- Mug with Cat Face 🐱 -->
+          <rect x="180" y="228" width="22" height="22" rx="4" fill="#ffffff"/>
+          <circle cx="187" cy="238" r="1.5" fill="#333"/>
+          <circle cx="195" cy="238" r="1.5" fill="#333"/>
+          <path d="M 191 241 L 191 243" stroke="#e06c8f" stroke-width="1.5"/>
+          
+          <!-- Sparkles -->
+          <text x="35" y="70" font-size="14" fill="#eb6b98">✦</text>
+          <text x="210" y="100" font-size="12" fill="#8e68b8">✧</text>
+        </svg>
+      </div>
+
+      <!-- Right Top 2 Phones Grid -->
+      <div class="mockups-grid-container">
+
+        <!-- PHONE 1: HOME SCREEN -->
+        <div class="phone-device">
+          <div class="phone-top-notch">
+            <span>9:41</span>
+            <div class="notch-island"></div>
+            <span><i class="bi bi-wifi"></i> <i class="bi bi-battery-full"></i></span>
+          </div>
+
+          <div class="phone-inner-content">
+            <!-- Greeting Header -->
+            <div class="home-header-row">
+              <div>
+                <div class="home-greeting-title">Hi, Aiko! 👋</div>
+                <div class="home-greeting-sub">Ready to achieve something amazing today?</div>
+              </div>
+              <div class="home-avatar-img">🌸</div>
+            </div>
+
+            <!-- Purple Daily Goal Card -->
+            <div class="daily-goal-banner">
+              <div class="daily-goal-top">
+                <span class="dg-label">Daily Goal</span>
+                <span class="dg-counter">4/6 <span>tasks</span></span>
+              </div>
+              <div class="dg-quote">
+                "Discipline today, success tomorrow. ✨"
+              </div>
+              <div class="dg-mascot">☁️</div>
+            </div>
+
+            <!-- Today's Schedule -->
+            <div class="section-header-mini">
+              <span class="sh-title">Today's Schedule</span>
+              <a href="#" class="sh-link">View All</a>
+            </div>
+
+            <div class="schedule-list">
+              <div class="sched-item">
+                <div class="sched-item-left">
+                  <div class="sched-icon si-math"><i class="bi bi-calculator"></i></div>
+                  <div>
+                    <div class="sched-text-name">Mathematics</div>
+                    <div class="sched-text-sub">Chapters 1-3</div>
+                  </div>
+                </div>
+                <span class="sched-time-badge">09:00 AM</span>
+              </div>
+
+              <div class="sched-item">
+                <div class="sched-item-left">
+                  <div class="sched-icon si-bio"><i class="bi bi-flower1"></i></div>
+                  <div>
+                    <div class="sched-text-name">Biology</div>
+                    <div class="sched-text-sub">Cell Structure</div>
+                  </div>
+                </div>
+                <span class="sched-time-badge">11:30 AM</span>
+              </div>
+
+              <div class="sched-item">
+                <div class="sched-item-left">
+                  <div class="sched-icon si-hist"><i class="bi bi-globe-americas"></i></div>
+                  <div>
+                    <div class="sched-text-name">History</div>
+                    <div class="sched-text-sub">World War II Overview</div>
+                  </div>
+                </div>
+                <span class="sched-time-badge">02:00 PM</span>
+              </div>
+
+              <div class="sched-item">
+                <div class="sched-item-left">
+                  <div class="sched-icon si-phys"><i class="bi bi-lightning-charge"></i></div>
+                  <div>
+                    <div class="sched-text-name">Physics</div>
+                    <div class="sched-text-sub">Motion in a Straight Line</div>
+                  </div>
+                </div>
+                <span class="sched-time-badge">04:30 PM</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Tab Bar -->
+          <div class="phone-tabbar">
+            <div class="tabbar-item active"><i class="bi bi-house-door-fill"></i><span>Home</span></div>
+            <div class="tabbar-item"><i class="bi bi-calendar4-week"></i><span>Planner</span></div>
+            <div class="tabbar-center-add"><i class="bi bi-plus"></i></div>
+            <div class="tabbar-item"><i class="bi bi-stopwatch"></i><span>Focus</span></div>
+            <div class="tabbar-item"><i class="bi bi-person"></i><span>Profile</span></div>
+          </div>
+        </div>
+
+        <!-- PHONE 2: PLANNER SCREEN -->
+        <div class="phone-device">
+          <div class="phone-top-notch">
+            <span>9:41</span>
+            <div class="notch-island"></div>
+            <span><i class="bi bi-wifi"></i> <i class="bi bi-battery-full"></i></span>
+          </div>
+
+          <div class="phone-inner-content">
+            <div class="planner-title-row">
+              <span class="sh-title" style="font-size: 13px;">Planner</span>
+              <i class="bi bi-sliders2" style="font-size: 11px; color: var(--text-muted);"></i>
+            </div>
+
+            <!-- Date Selector Carousel -->
+            <div class="week-calendar-strip">
+              <div class="cal-day-col"><span class="cdc-name">Sun</span><span class="cdc-num">20</span></div>
+              <div class="cal-day-col"><span class="cdc-name">Mon</span><span class="cdc-num">21</span></div>
+              <div class="cal-day-col"><span class="cdc-name">Tue</span><span class="cdc-num">22</span></div>
+              <div class="cal-day-col selected"><span class="cdc-name">Wed</span><span class="cdc-num">23</span></div>
+              <div class="cal-day-col"><span class="cdc-name">Thu</span><span class="cdc-num">24</span></div>
+              <div class="cal-day-col"><span class="cdc-name">Fri</span><span class="cdc-num">25</span></div>
+              <div class="cal-day-col"><span class="cdc-name">Sat</span><span class="cdc-num">26</span></div>
+            </div>
+
+            <!-- Task Checklist -->
+            <div class="section-header-mini">
+              <span class="sh-title">Tasks</span>
+              <span style="font-size: 8px; color: var(--text-muted);"><i class="bi bi-plus-circle-fill"></i> Add</span>
+            </div>
+
+            <div class="tasks-list-mini">
+              <div class="task-row-card">
+                <div class="task-check-circle checked" onclick="this.classList.toggle('checked')"><i class="bi bi-check"></i></div>
+                <div class="task-details-col">
+                  <div class="td-title">Complete Math</div>
+                  <div class="td-sub">Exercise set 1</div>
+                </div>
+              </div>
+
+              <div class="task-row-card">
+                <div class="task-check-circle" onclick="this.classList.toggle('checked')"><i class="bi bi-check"></i></div>
+                <div class="task-details-col">
+                  <div class="td-title">Revise Biology MCQs</div>
+                  <div class="td-sub">Chapter 4</div>
+                </div>
+              </div>
+
+              <div class="task-row-card">
+                <div class="task-check-circle" onclick="this.classList.toggle('checked')"><i class="bi bi-check"></i></div>
+                <div class="task-details-col">
+                  <div class="td-title">Read History Chapter</div>
+                  <div class="td-sub">The Rise of Nations</div>
+                </div>
+              </div>
+
+              <div class="task-row-card">
+                <div class="task-check-circle" onclick="this.classList.toggle('checked')"><i class="bi bi-check"></i></div>
+                <div class="task-details-col">
+                  <div class="td-title">Physics Numericals</div>
+                  <div class="td-sub">Practice 15 problems</div>
+                </div>
+              </div>
+
+              <div class="task-row-card">
+                <div class="task-check-circle" onclick="this.classList.toggle('checked')"><i class="bi bi-check"></i></div>
+                <div class="task-details-col">
+                  <div class="td-title">English Assignment</div>
+                  <div class="td-sub">Literature Essay</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Study Streak Footer Widget -->
+            <div class="streak-widget-card">
+              <div>
+                <div class="streak-widget-left">Study Streak</div>
+                <div class="streak-widget-num">12 Days</div>
+              </div>
+              <div class="streak-widget-icon">☕🏆</div>
+            </div>
+          </div>
+
+          <!-- Bottom Tab Bar -->
+          <div class="phone-tabbar">
+            <div class="tabbar-item"><i class="bi bi-house-door"></i><span>Home</span></div>
+            <div class="tabbar-item active"><i class="bi bi-calendar4-week"></i><span>Planner</span></div>
+            <div class="tabbar-center-add"><i class="bi bi-plus"></i></div>
+            <div class="tabbar-item"><i class="bi bi-stopwatch"></i><span>Focus</span></div>
+            <div class="tabbar-item"><i class="bi bi-person"></i><span>Profile</span></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         MIDDLE ROW: PINNED PAPER + BOTTOM 2 PHONES
+         ========================================== -->
+    <section class="middle-features-strip">
+      
+      <!-- Pinned Washi Paper Note on Left -->
+      <div>
+        <div class="washi-memo-paper">
+          <div class="washi-tape-strip"></div>
+          
+          <h3 class="memo-headline">
+            Everything you need,<br>
+            in one app! <span class="heart-sm">♡</span>
+          </h3>
+
+          <div class="memo-features-grid">
+            <div class="memo-grid-item">
+              <div class="mgi-icon-sq mgi-1"><i class="bi bi-calendar2-week"></i></div>
+              <span class="mgi-label">Study Planner</span>
+            </div>
+            <div class="memo-grid-item">
+              <div class="mgi-icon-sq mgi-2"><i class="bi bi-alarm-fill"></i></div>
+              <span class="mgi-label">Pomodoro Timer</span>
+            </div>
+            <div class="memo-grid-item">
+              <div class="mgi-icon-sq mgi-3"><i class="bi bi-graph-up"></i></div>
+              <span class="mgi-label">Progress Tracking</span>
+            </div>
+            <div class="memo-grid-item">
+              <div class="mgi-icon-sq mgi-4"><i class="bi bi-palette-fill"></i></div>
+              <span class="mgi-label">Beautiful Themes</span>
+            </div>
+            <div class="memo-grid-item">
+              <div class="mgi-icon-sq mgi-5"><i class="bi bi-chat-quote-fill"></i></div>
+              <span class="mgi-label">Motivational Quotes</span>
+            </div>
+            <div class="memo-grid-item">
+              <div class="mgi-icon-sq mgi-6"><i class="bi bi-shield-check"></i></div>
+              <span class="mgi-label">Secure & Private</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mascot & Thought Bubble -->
+        <div class="mascot-speech-wrap">
+          <div class="cat-avatar-art">🐱</div>
+          <div class="speech-bubble-box">
+            Small steps<br>
+            every day lead<br>
+            to big results! ♡
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom 2 Phones Grid -->
+      <div class="mockups-grid-container">
+
+        <!-- PHONE 3: FOCUS TIMER SCREEN -->
+        <div class="phone-device">
+          <div class="phone-top-notch">
+            <span>9:41</span>
+            <div class="notch-island"></div>
+            <span><i class="bi bi-wifi"></i> <i class="bi bi-battery-full"></i></span>
+          </div>
+
+          <div class="phone-inner-content" style="align-items: center; text-align: center;">
+            <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+              <i class="bi bi-chevron-left" style="font-size: 11px;"></i>
+              <span class="sh-title">Focus Timer</span>
+              <i class="bi bi-gear" style="font-size: 11px;"></i>
+            </div>
+
+            <!-- Segmented Control -->
+            <div class="timer-segmented-control" style="width: 100%;">
+              <div class="tsc-btn active">Pomodoro</div>
+              <div class="tsc-btn">Short Break</div>
+              <div class="tsc-btn">Long Break</div>
+            </div>
+
+            <!-- Circle Ring with Chibi Illustration -->
+            <div class="timer-circle-wrap">
+              <div class="timer-ring-art">
+                <div class="timer-avatar-center">👧🏻</div>
+              </div>
+              <div class="timer-digits" id="liveTimerDisplay">25:00</div>
+              <div class="timer-sub-guide">Focus on your goal</div>
+              <button class="timer-start-pill-btn" onclick="togglePomodoro()">Start</button>
+            </div>
+          </div>
+
+          <!-- Bottom Tab Bar -->
+          <div class="phone-tabbar">
+            <div class="tabbar-item"><i class="bi bi-house-door"></i><span>Home</span></div>
+            <div class="tabbar-item"><i class="bi bi-calendar4-week"></i><span>Planner</span></div>
+            <div class="tabbar-center-add"><i class="bi bi-plus"></i></div>
+            <div class="tabbar-item active"><i class="bi bi-stopwatch-fill"></i><span>Focus</span></div>
+            <div class="tabbar-item"><i class="bi bi-person"></i><span>Profile</span></div>
+          </div>
+        </div>
+
+        <!-- PHONE 4: PROGRESS SCREEN -->
+        <div class="phone-device">
+          <div class="phone-top-notch">
+            <span>9:41</span>
+            <div class="notch-island"></div>
+            <span><i class="bi bi-wifi"></i> <i class="bi bi-battery-full"></i></span>
+          </div>
+
+          <div class="phone-inner-content">
+            <div class="progress-top-head">
+              <span class="sh-title">Progress</span>
+              <span style="font-size: 8px; color: var(--text-muted); font-weight: 700;">This Month <i class="bi bi-chevron-down"></i></span>
+            </div>
+
+            <div class="progress-stat-hero">
+              <span>Study Time</span>
+              18h 45m
+            </div>
+
+            <!-- 7-Day Bar Chart -->
+            <div class="weekly-bar-chart">
+              <div class="bar-col-item"><div class="bar-pill" style="height: 35%;"></div><span class="bar-day-label">Mon</span></div>
+              <div class="bar-col-item"><div class="bar-pill bp-active" style="height: 65%;"></div><span class="bar-day-label">Tue</span></div>
+              <div class="bar-col-item"><div class="bar-pill" style="height: 40%;"></div><span class="bar-day-label">Wed</span></div>
+              <div class="bar-col-item"><div class="bar-pill bp-highlight" style="height: 85%;"></div><span class="bar-day-label">Thu</span></div>
+              <div class="bar-col-item"><div class="bar-pill bp-active" style="height: 70%;"></div><span class="bar-day-label">Fri</span></div>
+              <div class="bar-col-item"><div class="bar-pill" style="height: 50%;"></div><span class="bar-day-label">Sat</span></div>
+              <div class="bar-col-item"><div class="bar-pill" style="height: 25%;"></div><span class="bar-day-label">Sun</span></div>
+            </div>
+
+            <!-- 2 Summary Badges -->
+            <div class="progress-badges-row">
+              <div class="pb-box">
+                <i class="bi bi-check-circle-fill" style="color: #48bb78; font-size: 13px;"></i>
+                <div>
+                  <div class="pbb-num">23</div>
+                  <div class="pbb-lbl">Tasks Done</div>
+                </div>
+              </div>
+              <div class="pb-box">
+                <i class="bi bi-fire" style="color: #f56565; font-size: 13px;"></i>
+                <div>
+                  <div class="pbb-num">12</div>
+                  <div class="pbb-lbl">Sessions</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Subjects Breakdown -->
+            <div class="section-header-mini">
+              <span class="sh-title">Subjects</span>
+              <a href="#" class="sh-link">View All</a>
+            </div>
+
+            <div class="subject-prog-list">
+              <div class="subj-line-item">
+                <div class="sli-head"><span>Mathematics</span><span>75%</span></div>
+                <div class="sli-bar-bg"><div class="sli-bar-fill" style="width: 75%; background: #6366f1;"></div></div>
+              </div>
+              <div class="subj-line-item">
+                <div class="sli-head"><span>Biology</span><span>60%</span></div>
+                <div class="sli-bar-bg"><div class="sli-bar-fill" style="width: 60%; background: #10b981;"></div></div>
+              </div>
+              <div class="subj-line-item">
+                <div class="sli-head"><span>History</span><span>45%</span></div>
+                <div class="sli-bar-bg"><div class="sli-bar-fill" style="width: 45%; background: #ef4444;"></div></div>
+              </div>
+              <div class="subj-line-item">
+                <div class="sli-head"><span>Physics</span><span>50%</span></div>
+                <div class="sli-bar-bg"><div class="sli-bar-fill" style="width: 50%; background: #8b5cf6;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Tab Bar -->
+          <div class="phone-tabbar">
+            <div class="tabbar-item"><i class="bi bi-house-door"></i><span>Home</span></div>
+            <div class="tabbar-item"><i class="bi bi-calendar4-week"></i><span>Planner</span></div>
+            <div class="tabbar-center-add"><i class="bi bi-plus"></i></div>
+            <div class="tabbar-item"><i class="bi bi-stopwatch"></i><span>Focus</span></div>
+            <div class="tabbar-item active"><i class="bi bi-person-fill"></i><span>Profile</span></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         BOTTOM CTA BANNER FOOTER
+         ========================================== -->
+    <footer class="poster-footer-banner">
+      <div class="pfb-left-text">
+        <div class="pfb-star">★</div>
+        <div>
+          <div class="pfb-title-quote">Stay focused. Stay consistent. ✦</div>
+          <div class="pfb-sub-quote">Make your dreams your reality. ♡</div>
+        </div>
+      </div>
+
+      <div class="pfb-right-cta">
+        <div class="pfb-callout">
+          <div class="pfb-callout-text">Download StudyMate<br>and start your<br>journey today! 🌸</div>
+        </div>
+
+        <div class="store-buttons-stack">
+          <a href="#" class="store-badge-btn">
+            <i class="bi bi-apple sbb-icon"></i>
+            <div class="sbb-text">
+              <span class="sbb-sub">Download on</span>
+              <span class="sbb-main">App Store</span>
+            </div>
+          </a>
+
+          <a href="#" class="store-badge-btn">
+            <i class="bi bi-google-play sbb-icon"></i>
+            <div class="sbb-text">
+              <span class="sbb-sub">GET IT ON</span>
+              <span class="sbb-main">Google Play</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="pfb-cat-corner">🐱</div>
+    </footer>
+
+  </div>
+
+  <script>
+    // Interactive Pomodoro Timer Toggle
+    let timerRunning = false;
+    let timerSeconds = 25 * 60;
+    let timerInterval = null;
+
+    function togglePomodoro() {
+      const btn = document.querySelector('.timer-start-pill-btn');
+      const display = document.getElementById('liveTimerDisplay');
+      
+      if (!timerRunning) {
+        timerRunning = true;
+        btn.innerText = 'Pause';
+        btn.style.background = '#eb6b98';
+        timerInterval = setInterval(() => {
+          if (timerSeconds > 0) {
+            timerSeconds--;
+            let mins = Math.floor(timerSeconds / 60);
+            let secs = timerSeconds % 60;
+            display.innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+          } else {
+            clearInterval(timerInterval);
+            timerRunning = false;
+            btn.innerText = 'Start';
+            btn.style.background = '';
+            alert('Great job Vimbainashe! Focus session complete! 🎉');
+          }
+        }, 1000);
+      } else {
+        clearInterval(timerInterval);
+        timerRunning = false;
+        btn.innerText = 'Start';
+        btn.style.background = '';
+      }
+    }
+  </script>
+</body>
+</html>

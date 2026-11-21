@@ -1,0 +1,59 @@
+<!-- AI Drawer Overlay -->
+<div class="ai-drawer-overlay" id="aiDrawerOverlay"></div>
+
+<!-- Slide-Out AI Assistant Drawer -->
+<div class="ai-drawer" id="aiDrawer">
+  <!-- Header -->
+  <div class="p-3 border-bottom border-secondary-subtle d-flex align-items-center justify-content-between bg-dark-subtle">
+    <div class="d-flex align-items-center gap-2">
+      <div class="rounded-circle bg-primary p-2 text-white d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+        <i class="bi bi-stars"></i>
+      </div>
+      <div>
+        <h6 class="mb-0 fw-bold">Course AI Advisor</h6>
+        <small class="text-success" style="font-size: 0.75rem;">● Online & Context-Aware</small>
+      </div>
+    </div>
+    <button class="btn btn-sm btn-glass px-2 py-1" id="closeAiDrawerBtn" title="Close Drawer">
+      <i class="bi bi-x-lg"></i>
+    </button>
+  </div>
+
+  <!-- Quick Prompts Ribbon -->
+  <div class="p-2 border-bottom border-secondary-subtle d-flex gap-2 overflow-x-auto text-nowrap bg-body-tertiary">
+    <button class="chip-prompt" data-prompt="What assignments or exams are due this week?">
+      📅 What's due this week?
+    </button>
+    <button class="chip-prompt" data-prompt="Suggest a balanced study schedule for my courses">
+      🧠 Suggest Study Plan
+    </button>
+    <button class="chip-prompt" data-prompt="Give me a quick motivation boost and study tip">
+      💡 Surprise Me
+    </button>
+  </div>
+
+  <!-- Chat History Container -->
+  <div class="ai-chat-body" id="aiChatBody">
+    <div class="chat-bubble assistant">
+      👋 <strong>Hi <%= user.name %>!</strong> I'm your AI Academic Assistant. I have live access to your enrolled courses, class schedules, and upcoming deadlines. Ask me anything or click a prompt above!
+    </div>
+  </div>
+
+  <!-- Chat Input Footer -->
+  <div class="p-3 border-top border-secondary-subtle bg-body-tertiary">
+    <% if (typeof course !== 'undefined') { %>
+      <input type="hidden" id="aiContextCourseId" value="<%= course.id %>">
+      <div class="mb-2">
+        <span class="badge bg-primary-subtle text-primary border border-primary-subtle" style="font-size: 0.75rem;">
+          <i class="bi bi-bookmark-fill me-1"></i> Context: <%= course.title %>
+        </span>
+      </div>
+    <% } %>
+    <form id="aiChatForm" class="d-flex gap-2">
+      <input type="text" id="aiChatInput" class="form-control" placeholder="Ask about assignments, exams, or study tips..." autocomplete="off" required>
+      <button type="submit" class="btn btn-primary-gradient px-3" title="Send Question">
+        <i class="bi bi-send-fill"></i>
+      </button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Allow: /auth/login
+Allow: /auth/register
+Disallow: /api/
+Disallow: /courses/
+Disallow: /timetable/
+Disallow: /files/
+Disallow: /gamification/
+Disallow: /notifications/
+
+Sitemap: https://gnostix.co.zw/sitemap.xml

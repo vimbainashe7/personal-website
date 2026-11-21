@@ -1,0 +1,53 @@
+<!-- Pomodoro Focus Timer Modal -->
+<div class="modal fade" id="focusTimerModal" tabindex="-1" aria-labelledby="focusTimerModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content card-glass border border-secondary-subtle">
+      <div class="modal-header border-bottom border-secondary-subtle">
+        <h5 class="modal-title fw-bold" id="focusTimerModalLabel">
+          <i class="bi bi-stopwatch text-warning me-2"></i> Pomodoro Focus Timer
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center py-4">
+        <!-- Duration Selector Pills -->
+        <div class="d-flex justify-content-center gap-2 mb-4">
+          <button class="btn btn-sm btn-glass timer-duration-btn btn-primary-gradient active" data-mins="25">25m Focus</button>
+          <button class="btn btn-sm btn-glass timer-duration-btn" data-mins="45">45m Deep Work</button>
+          <button class="btn btn-sm btn-glass timer-duration-btn" data-mins="5">5m Break</button>
+        </div>
+
+        <!-- Animated Timer Countdown Display -->
+        <div class="timer-display my-3" id="timerDisplay">25:00</div>
+
+        <!-- Optional Course Selector -->
+        <div class="mb-4 text-start mx-auto" style="max-width: 320px;">
+          <label class="form-label small text-muted">Tag Course (Optional for XP log):</label>
+          <select class="form-select form-select-sm" id="timerCourseSelect">
+            <option value="">General Study Session</option>
+            <% if (typeof courses !== 'undefined' && Array.isArray(courses)) { %>
+              <% courses.forEach(function(c) { %>
+                <option value="<%= c.id %>"><%= c.title %> <%= c.code ? `(${c.code})` : '' %></option>
+              <% }); %>
+            <% } %>
+          </select>
+        </div>
+
+        <!-- Control Buttons -->
+        <div class="d-flex justify-content-center gap-2">
+          <button id="timerStartBtn" class="btn btn-primary-gradient px-4 py-2 fw-bold">
+            <i class="bi bi-play-fill me-1"></i> Start Focus
+          </button>
+          <button id="timerPauseBtn" class="btn btn-warning px-4 py-2 fw-bold d-none">
+            <i class="bi bi-pause-fill me-1"></i> Pause
+          </button>
+          <button id="timerResetBtn" class="btn btn-glass px-3 py-2">
+            <i class="bi bi-arrow-clockwise"></i> Reset
+          </button>
+        </div>
+      </div>
+      <div class="modal-footer border-top border-secondary-subtle justify-content-center text-muted small">
+        💡 Completing a session logs your study streak and awards XP!
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,229 @@
+<!-- Dashboard Header -->
+<div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
+  <div>
+    <h2 class="fw-bold mb-1">
+      Good day, <%= user.name %>! 👋
+    </h2>
+    <p class="text-muted mb-0">Here is your academic overview for today.</p>
+  </div>
+  <div class="d-flex gap-2">
+    <button class="btn btn-glass d-flex align-items-center gap-2" id="openAiDrawerBtn2" onclick="document.getElementById('openAiDrawerBtn').click()">
+      <i class="bi bi-stars text-primary"></i> <span>Ask AI Advisor</span>
+    </button>
+    <a href="/courses/new" class="btn btn-primary-gradient d-flex align-items-center gap-2">
+      <i class="bi bi-plus-lg"></i> <span>Add Course</span>
+    </a>
+  </div>
+</div>
+
+<!-- Conflict Warning Alert Banner if any -->
+<% if (conflicts && conflicts.length > 0) { %>
+  <div class="conflict-banner mb-4 d-flex align-items-start gap-3">
+    <i class="bi bi-exclamation-triangle-fill fs-4 flex-shrink-0"></i>
+    <div class="flex-grow-1">
+      <h6 class="fw-bold mb-1">Schedule Conflict Detected!</h6>
+      <ul class="mb-0 ps-3 small">
+        <% conflicts.forEach(function(c) { %>
+          <li><strong><%= c.day %>:</strong> <%= c.courseA %> (<%= c.timeA %>) overlaps with <%= c.courseB %> (<%= c.timeB %>)</li>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
+<% } %>
+
+<!-- Stats & Metrics Row -->
+<div class="row g-3 mb-4">
+  <div class="col-6 col-lg-3">
+    <div class="card card-glass p-3 h-100 card-hover-lift">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <span class="text-muted small fw-semibold">Active Courses</span>
+        <div class="rounded-circle bg-primary-subtle p-2 text-primary">
+          <i class="bi bi-book"></i>
+        </div>
+      </div>
+      <h3 class="fw-bold mb-0"><%= courses.length %></h3>
+      <small class="text-muted"><%= totalCredits %> Total Credits</small>
+    </div>
+  </div>
+
+  <div class="col-6 col-lg-3">
+    <div class="card card-glass p-3 h-100 card-hover-lift">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <span class="text-muted small fw-semibold">Due Soon</span>
+        <div class="rounded-circle bg-warning-subtle p-2 text-warning">
+          <i class="bi bi-clock-history"></i>
+        </div>
+      </div>
+      <h3 class="fw-bold mb-0"><%= upcomingEntries.length %></h3>
+      <small class="text-muted">Assignments & Exams</small>
+    </div>
+  </div>
+
+  <div class="col-6 col-lg-3">
+    <div class="card card-glass p-3 h-100 card-hover-lift">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <span class="text-muted small fw-semibold">Study Streak</span>
+        <div class="rounded-circle bg-danger-subtle p-2 text-danger">
+          <i class="bi bi-fire"></i>
+        </div>
+      </div>
+      <h3 class="fw-bold mb-0 text-danger"><%= (stats && stats.current_streak) || 0 %> Days</h3>
+      <small class="text-muted">Best: <%= (stats && stats.longest_streak) || 0 %> days</small>
+    </div>
+  </div>
+
+  <div class="col-6 col-lg-3">
+    <div class="card card-glass p-3 h-100 card-hover-lift">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <span class="text-muted small fw-semibold">Scholar Rank</span>
+        <div class="rounded-circle bg-success-subtle p-2 text-success">
+          <i class="bi bi-award"></i>
+        </div>
+      </div>
+      <h3 class="fw-bold mb-0 text-primary">Level <%= (stats && stats.level) || 1 %></h3>
+      <div class="progress mt-2" style="height: 6px;">
+        <div class="progress-bar bg-primary" role="progressbar" style="width: <%= ((stats && stats.xp) || 0) % 100 %>%"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-4 mb-4">
+  <!-- Today's Schedule Timeline -->
+  <div class="col-12 col-lg-5">
+    <div class="card card-glass p-4 h-100">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="fw-bold mb-0">
+          <i class="bi bi-calendar-event me-2 text-primary"></i> Today's Schedule (<%= todayDay %>)
+        </h5>
+        <a href="/timetable" class="small text-primary text-decoration-none">Full Timetable &rarr;</a>
+      </div>
+
+      <% if (todayClasses && todayClasses.length > 0) { %>
+        <div class="d-flex flex-column gap-2">
+          <% todayClasses.forEach(function(cls) { %>
+            <div class="p-3 rounded border d-flex align-items-center justify-content-between" style="background: rgba(255,255,255,0.03); border-left: 4px solid <%= cls.color %> !important;">
+              <div>
+                <h6 class="fw-bold mb-0"><%= cls.courseTitle %></h6>
+                <small class="text-muted">
+                  <%= cls.startTime %> - <%= cls.endTime %>
+                  <% if (cls.location) { %> • 📍 <%= cls.location %><% } %>
+                </small>
+              </div>
+              <span class="fs-5" title="Course Mood"><%= cls.mood || '😊' %></span>
+            </div>
+          <% }); %>
+        </div>
+      <% } else { %>
+        <div class="text-center py-4 text-muted">
+          <i class="bi bi-cup-hot fs-1 d-block mb-2 text-secondary"></i>
+          <p class="mb-0">No classes scheduled for today. Great time to catch up on assignments or study!</p>
+        </div>
+      <% } %>
+    </div>
+  </div>
+
+  <!-- AI Academic Recap & Quick Assistance -->
+  <div class="col-12 col-lg-7">
+    <div class="card card-glass p-4 h-100 position-relative overflow-hidden">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="d-flex align-items-center gap-2">
+          <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+            <i class="bi bi-robot"></i>
+          </div>
+          <h5 class="fw-bold mb-0">AI Daily Study Coach</h5>
+        </div>
+        <span class="badge bg-primary-subtle text-primary border border-primary-subtle">Ready to assist</span>
+      </div>
+
+      <div class="p-3 rounded mb-3" style="background: rgba(99, 102, 241, 0.08); border: 1px solid rgba(99, 102, 241, 0.2);">
+        <p class="mb-2 small">
+          ✨ <strong>Personalized AI Strategy:</strong> You have <strong><%= upcomingEntries.length %> items</strong> on your radar. Regular focused sessions of 25-45 minutes will keep you ahead of your deadlines without stress!
+        </p>
+        <div class="d-flex flex-wrap gap-2 mt-2">
+          <button class="btn btn-sm btn-glass text-primary" onclick="document.getElementById('openAiDrawerBtn').click()">
+            <i class="bi bi-chat-dots me-1"></i> "What's due this week?"
+          </button>
+          <button class="btn btn-sm btn-glass text-primary" onclick="document.getElementById('openAiDrawerBtn').click()">
+            <i class="bi bi-calendar-plus me-1"></i> "Generate study schedule"
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Deadlines Checkbox List -->
+      <h6 class="fw-bold mb-2 small text-muted text-uppercase">Upcoming Tasks & Deadlines</h6>
+      <% if (upcomingEntries && upcomingEntries.length > 0) { %>
+        <div class="d-flex flex-column gap-2">
+          <% upcomingEntries.forEach(function(item) { %>
+            <div class="task-item p-2 px-3 rounded border d-flex align-items-center justify-content-between bg-dark-subtle border-secondary-subtle">
+              <div class="d-flex align-items-center gap-3">
+                <input type="checkbox" class="task-checkbox task-checkbox-toggle" data-entry-id="<%= item.id %>" <%= item.is_completed ? 'checked' : '' %>>
+                <div>
+                  <span class="fw-semibold small"><%= item.title %></span>
+                  <div class="text-muted" style="font-size: 0.75rem;">
+                    <%= item.course_title || 'General' %> • Due <%= new Date(item.start_datetime).toLocaleDateString([], { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }) %>
+                  </div>
+                </div>
+              </div>
+              <span class="badge bg-secondary-subtle text-secondary" style="font-size: 0.75rem;"><%= item.entry_type %></span>
+            </div>
+          <% }); %>
+        </div>
+      <% } else { %>
+        <p class="text-muted small mb-0">No upcoming tasks or deadlines recorded. Click "+ Add Entry" in your Timetable.</p>
+      <% } %>
+    </div>
+  </div>
+</div>
+
+<!-- Active Courses Section -->
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h4 class="fw-bold mb-0">Enrolled Courses</h4>
+  <a href="/courses" class="btn btn-sm btn-glass">View All (<%= allCoursesCount %>)</a>
+</div>
+
+<% if (courses && courses.length > 0) { %>
+  <div class="row g-3">
+    <% courses.forEach(function(c) { %>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card card-glass h-100 card-hover-lift">
+          <div class="course-color-bar" style="background-color: <%= c.color || '#4f46e5' %>;"></div>
+          <div class="p-4 d-flex flex-column h-100">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <div>
+                <span class="badge bg-primary-subtle text-primary border border-primary-subtle mb-1"><%= c.code || 'COURSE' %></span>
+                <h5 class="fw-bold mb-0">
+                  <a href="/courses/<%= c.id %>" class="text-decoration-none text-reset"><%= c.title %></a>
+                </h5>
+              </div>
+              <span class="fs-4" title="Course Energy"><%= c.mood || '😊' %></span>
+            </div>
+
+            <p class="text-muted small mb-3 flex-grow-1">
+              <i class="bi bi-person me-1"></i> <%= c.instructor || 'Instructor Not Assigned' %><br>
+              <i class="bi bi-mortarboard me-1"></i> <%= c.credits || 3 %> Credits • <%= c.semester || 'Current Semester' %>
+            </p>
+
+            <div class="pt-2 border-top border-secondary-subtle d-flex justify-content-between align-items-center">
+              <small class="text-muted">
+                <i class="bi bi-paperclip me-1"></i> <%= (c.files && c.files.length) || 0 %> Files
+              </small>
+              <a href="/courses/<%= c.id %>" class="btn btn-sm btn-glass">Manage &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+<% } else { %>
+  <div class="card card-glass p-5 text-center">
+    <i class="bi bi-journal-plus fs-1 text-primary mb-3"></i>
+    <h5 class="fw-bold">No Courses Enrolled Yet</h5>
+    <p class="text-muted mb-3">Get started by creating your first course to unlock schedule automation and AI summaries.</p>
+    <div>
+      <a href="/courses/new" class="btn btn-primary-gradient px-4">
+        <i class="bi bi-plus-lg me-1"></i> Add Your First Course
+      </a>
+    </div>
+  </div>
+<% } %>
